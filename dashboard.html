@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Quote Community</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-quote-left"></i>
+
+<h2>Quote Community</h2>
+
+</div>
+
+<ul>
+
+<li class="active">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Dashboard</span>
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-fire"></i>
+
+<span>Trending</span>
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-heart"></i>
+
+<span>Liked Quotes</span>
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-bookmark"></i>
+
+<span>Bookmarks</span>
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-user"></i>
+
+<span>Profile</span>
+
+</li>
+
+<li id="logoutBtn">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+<span>Logout</span>
+
+</li>
+
+</ul>
+
+</aside>
+
+<!-- Main Content -->
+
+<div class="main">
+
+<!-- Header -->
+
+<header>
+
+<div>
+
+<h1>
+
+Welcome Back 👋
+
+</h1>
+
+<p id="userEmail">
+
+Loading User...
+
+</p>
+
+</div>
+
+<div class="profile">
+
+<img src="https://i.pravatar.cc/80">
+
+</div>
+
+</header>
+
+<!-- Today's Quote -->
+
+<section class="today">
+
+<h2>
+
+🌟 Quote of the Day
+
+</h2>
+
+<div class="quote-card">
+
+<p id="quoteText">
+
+"Success is the sum of small efforts repeated day after day."
+
+</p>
+
+<div class="reaction">
+
+<button id="likeBtn">
+
+👍 <span id="likeCount">0</span>
+
+</button>
+
+<button id="dislikeBtn">
+
+👎 <span id="dislikeCount">0</span>
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Categories -->
+
+<section class="categories">
+
+<h2>
+
+Browse Categories
+
+</h2>
+
+<div class="category-grid">
+
+<div class="category">💪 Motivation</div>
+
+<div class="category">💼 Career</div>
+
+<div class="category">❤️ Life</div>
+
+<div class="category">📚 Study</div>
+
+<div class="category">💻 Programming</div>
+
+<div class="category">🏆 Success</div>
+
+</div>
+
+</section>
+
+<!-- Latest Quotes -->
+
+<section>
+
+<h2>
+
+Latest Quotes
+
+</h2>
+
+<div class="quotes-grid" id="quotesContainer">
+
+<div class="quote-box">
+
+<h3>Believe</h3>
+
+<p>
+
+Believe in yourself because you are stronger than you think.
+
+</p>
+
+<button>
+
+Read More
+
+</button>
+
+</div>
+
+<div class="quote-box">
+
+<h3>Learning</h3>
+
+<p>
+
+Learning never exhausts the mind.
+
+</p>
+
+<button>
+
+Read More
+
+</button>
+
+</div>
+
+<div class="quote-box">
+
+<h3>Dream Big</h3>
+
+<p>
+
+Dream big and dare to fail.
+
+</p>
+
+<button>
+
+Read More
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Stats -->
+
+<section class="stats">
+
+<div class="stat-card">
+
+<h2>
+
+1200
+
+</h2>
+
+<p>
+
+Quotes Read
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+
+542
+
+</h2>
+
+<p>
+
+Likes Given
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+
+87
+
+</h2>
+
+<p>
+
+Bookmarks
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+
+42
+
+</h2>
+
+<p>
+
+Day Streak
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+
+© 2026 Quote Community
+
+</p>
+
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Quote Community</title>
+
+    <link rel="stylesheet" href="css/auth.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background">
+
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+
+</div>
+
+<div class="container">
+
+    <!-- Left Section -->
+
+    <div class="left">
+
+        <h1>Join Quote Community 🚀</h1>
+
+        <p>
+
+            Create your free account and become part of a growing
+            community that shares motivation, wisdom and positivity.
+
+        </p>
+
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+
+    </div>
+
+    <!-- Right Section -->
+
+    <div class="right">
+
+        <form id="signupForm">
+
+            <h2>Create Account</h2>
+
+            <p>Let's get started</p>
+
+            <!-- Full Name -->
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-user"></i>
+
+                <input
+                    type="text"
+                    id="fullname"
+                    placeholder="Full Name"
+                    required>
+
+            </div>
+
+            <!-- Username -->
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-at"></i>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Username"
+                    required>
+
+            </div>
+
+            <!-- Email -->
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required>
+
+            </div>
+
+            <!-- Password -->
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    required>
+
+                <i
+                    class="fa-solid fa-eye"
+                    id="togglePassword">
+
+                </i>
+
+            </div>
+
+            <!-- Confirm Password -->
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    required>
+
+            </div>
+
+            <!-- Password Strength -->
+
+            <div class="strength">
+
+                <div id="strengthBar"></div>
+
+            </div>
+
+            <small id="strengthText">
+
+                Password Strength
+
+            </small>
+
+            <!-- Terms -->
+
+            <div class="options">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        required>
+
+                    I agree to the Terms &
+                    Privacy Policy
+
+                </label>
+
+            </div>
+
+            <!-- Signup Button -->
+
+            <button
+                type="submit"
+                class="login-btn">
+
+                Create Account
+
+            </button>
+
+            <div class="divider">
+
+                <span>
+
+                    OR
+
+                </span>
+
+            </div>
+
+            <!-- Google Signup -->
+
+            <button
+                type="button"
+                class="google-btn">
+
+                <img
+                    src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
+                    width="20">
+
+                Continue with Google
+
+            </button>
+
+            <div class="bottom-text">
+
+                Already have an account?
+
+                <a href="login.html">
+
+                    Login
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/auth.js"></script>
+
+<script>
+
+const password=document.getElementById("password");
+
+const toggle=document.getElementById("togglePassword");
+
+toggle.onclick=()=>{
+
+if(password.type==="password"){
+
+password.type="text";
+
+toggle.classList.replace("fa-eye","fa-eye-slash");
+
+}
+
+else{
+
+password.type="password";
+
+toggle.classList.replace("fa-eye-slash","fa-eye");
+
+}
+
+}
+
+password.addEventListener("keyup",()=>{
+
+const strength=password.value.length;
+
+const bar=document.getElementById("strengthBar");
+
+const text=document.getElementById("strengthText");
+
+if(strength<6){
+
+bar.style.width="30%";
+
+bar.style.background="red";
+
+text.innerHTML="Weak Password";
+
+}
+
+else if(strength<10){
+
+bar.style.width="70%";
+
+bar.style.background="orange";
+
+text.innerHTML="Medium Password";
+
+}
+
+else{
+
+bar.style.width="100%";
+
+bar.style.background="#00ff88";
+
+text.innerHTML="Strong Password";
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
