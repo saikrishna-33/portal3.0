@@ -1,0 +1,763 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#070b18;
+    color:#ffffff;
+    display:flex;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ==========================================
+   VARIABLES
+========================================== */
+
+:root{
+    --primary:#7c3aed;
+    --secondary:#ec4899;
+    --accent:#06b6d4;
+
+    --card:rgba(255,255,255,.08);
+    --border:rgba(255,255,255,.12);
+
+    --text:#d6d6d6;
+
+    --shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+/* ==========================================
+   BACKGROUND GLOW
+========================================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:420px;
+    height:420px;
+    background:var(--primary);
+    border-radius:50%;
+    filter:blur(180px);
+    top:-120px;
+    left:-120px;
+    opacity:.35;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:380px;
+    height:380px;
+    background:var(--secondary);
+    border-radius:50%;
+    filter:blur(170px);
+    bottom:-100px;
+    right:-100px;
+    opacity:.28;
+    z-index:-2;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar{
+    width:260px;
+    min-height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(255,255,255,.07);
+    backdrop-filter:blur(22px);
+    border-right:1px solid var(--border);
+    padding:30px 20px;
+    display:flex;
+    flex-direction:column;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:45px;
+}
+
+.logo i{
+    font-size:32px;
+    color:var(--accent);
+}
+
+.logo h2{
+    font-size:22px;
+    font-weight:700;
+}
+
+/* ==========================================
+   MENU
+========================================== */
+
+.sidebar ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar ul li{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px 18px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.3s;
+    font-size:15px;
+    font-weight:500;
+}
+
+.sidebar ul li i{
+    font-size:18px;
+    width:25px;
+}
+
+.sidebar ul li:hover{
+    background:rgba(255,255,255,.10);
+    transform:translateX(5px);
+}
+
+.sidebar ul li.active{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+#logoutBtn{
+    margin-top:auto;
+    color:#ff8080;
+}
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.main{
+    flex:1;
+    margin-left:260px;
+    padding:35px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+header h1{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+header p{
+    color:var(--text);
+}
+
+/* ==========================================
+   PROFILE
+========================================== */
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.profile img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:3px solid var(--accent);
+    object-fit:cover;
+    transition:.3s;
+}
+
+.profile img:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px rgba(6,182,212,.4);
+}
+
+/* ==========================================
+   COMMON SECTION TITLE
+========================================== */
+
+section{
+    margin-bottom:45px;
+}
+
+section h2{
+    font-size:28px;
+    margin-bottom:22px;
+}
+
+/* ==========================================
+   GLASS CARD
+========================================== */
+
+.glass{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(18px);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+/* ==========================================
+   QUOTE OF THE DAY
+========================================== */
+
+.today .quote-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(18px);
+    border-radius:25px;
+    padding:35px;
+    box-shadow:var(--shadow);
+    transition:.35s;
+}
+
+.today .quote-card:hover{
+    transform:translateY(-5px);
+}
+
+#quoteText{
+    font-size:22px;
+    line-height:1.8;
+    color:#ffffff;
+    margin-bottom:30px;
+    font-weight:500;
+}
+
+/* ==========================================
+   REACTION BUTTONS
+========================================== */
+
+.reaction{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.reaction button{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    padding:14px 30px;
+    border-radius:50px;
+    font-size:16px;
+    font-weight:600;
+    color:#fff;
+    transition:.3s;
+}
+
+#likeBtn{
+    background:linear-gradient(135deg,#10b981,#059669);
+}
+
+#likeBtn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(16,185,129,.35);
+}
+
+#dislikeBtn{
+    background:linear-gradient(135deg,#ef4444,#dc2626);
+}
+
+#dislikeBtn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(239,68,68,.35);
+}
+
+.reaction span{
+    margin-left:8px;
+}
+
+/* ==========================================
+   CATEGORY SECTION
+========================================== */
+
+.categories{
+    margin-top:20px;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:20px;
+}
+
+.category{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(18px);
+    padding:20px;
+    border-radius:18px;
+    text-align:center;
+    font-weight:600;
+    transition:.35s;
+    cursor:pointer;
+}
+
+.category:hover{
+    transform:translateY(-6px);
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+/* ==========================================
+   LATEST QUOTES
+========================================== */
+
+.quotes-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.quote-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    backdrop-filter:blur(18px);
+    padding:28px;
+    transition:.35s;
+    box-shadow:var(--shadow);
+}
+
+.quote-box:hover{
+    transform:translateY(-8px);
+}
+
+.quote-box h3{
+    color:var(--accent);
+    margin-bottom:15px;
+}
+
+.quote-box p{
+    color:var(--text);
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.quote-box button{
+    padding:12px 22px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.quote-box button:hover{
+    transform:translateY(-3px);
+}
+
+/* ==========================================
+   USER STATISTICS
+========================================== */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    backdrop-filter:blur(18px);
+    text-align:center;
+    padding:35px 25px;
+    transition:.35s;
+    box-shadow:var(--shadow);
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+}
+
+.stat-card h2{
+    font-size:40px;
+    color:var(--accent);
+    margin-bottom:12px;
+}
+
+.stat-card p{
+    color:var(--text);
+    font-size:16px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+    margin-top:60px;
+    padding:30px 0;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.10);
+}
+
+footer p{
+    color:var(--text);
+    font-size:15px;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes fadeInUp{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+header,
+.today,
+.categories,
+.quotes-grid,
+.stats{
+    animation:fadeInUp .8s ease;
+}
+
+.profile img{
+    animation:float 4s ease-in-out infinite;
+}
+
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+
+.quote-box,
+.stat-card,
+.category,
+.today .quote-card{
+    transition:all .35s ease;
+}
+
+.quote-box:hover,
+.stat-card:hover,
+.category:hover,
+.today .quote-card:hover{
+    transform:translateY(-8px);
+}
+
+.sidebar ul li{
+    transition:all .3s ease;
+}
+
+.sidebar ul li:hover{
+    padding-left:25px;
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050814;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg,var(--primary),var(--secondary));
+    border-radius:50px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:linear-gradient(180deg,var(--secondary),var(--accent));
+}
+
+/* ==========================================
+   TEXT SELECTION
+========================================== */
+
+::selection{
+    background:var(--primary);
+    color:#ffffff;
+}
+
+/* ==========================================
+   BUTTON EFFECTS
+========================================== */
+
+button{
+    transition:.3s ease;
+}
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+button:active{
+    transform:scale(.96);
+}
+
+/* ==========================================
+   FOCUS STATES
+========================================== */
+
+button:focus,
+input:focus{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* ==========================================
+   MOBILE MENU PREPARATION
+========================================== */
+
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    color:#ffffff;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:1024px){
+
+.sidebar{
+    width:220px;
+}
+
+.main{
+    margin-left:220px;
+    padding:25px;
+}
+
+header h1{
+    font-size:28px;
+}
+
+.stats{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.category-grid{
+    grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+body{
+    display:block;
+}
+
+.sidebar{
+    position:fixed;
+    left:-270px;
+    width:250px;
+    transition:.35s;
+    z-index:1000;
+}
+
+.sidebar.active{
+    left:0;
+}
+
+.main{
+    margin-left:0;
+    padding:20px;
+}
+
+header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+}
+
+.profile{
+    align-self:flex-end;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+.category-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.stats{
+    grid-template-columns:1fr;
+}
+
+.quotes-grid{
+    grid-template-columns:1fr;
+}
+
+.reaction{
+    flex-direction:column;
+}
+
+.reaction button{
+    width:100%;
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.main{
+    padding:15px;
+}
+
+header h1{
+    font-size:24px;
+}
+
+section h2{
+    font-size:22px;
+}
+
+#quoteText{
+    font-size:18px;
+}
+
+.category-grid{
+    grid-template-columns:1fr;
+}
+
+.profile img{
+    width:50px;
+    height:50px;
+}
+
+.stat-card{
+    padding:25px;
+}
+
+.quote-box{
+    padding:20px;
+}
+
+.today .quote-card{
+    padding:25px;
+}
+
+}
+
+/* ==========================================
+   UTILITY CLASSES
+========================================== */
+
+.text-center{
+    text-align:center;
+}
+
+.mt-20{
+    margin-top:20px;
+}
+
+.mt-30{
+    margin-top:30px;
+}
+
+.mb-20{
+    margin-bottom:20px;
+}
+
+.hidden{
+    display:none;
+}
+
+.flex{
+    display:flex;
+}
+
+.flex-center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ==========================================
+   SMOOTH TRANSITIONS
+========================================== */
+
+*{
+    transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+}
