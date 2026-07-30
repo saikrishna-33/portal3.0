@@ -177,9 +177,12 @@ body{
     font-size:15px;
 }
 
-.input-box .togglePassword{
-    left:auto;
+#togglePassword{
+    position:absolute;
     right:18px;
+    left:auto;
+    top:50%;
+    transform:translateY(-50%);
     cursor:pointer;
 }
 
@@ -498,9 +501,10 @@ footer p{
     text-decoration:underline;
 }
 
+
 /* ==========================================
    PASSWORD STRENGTH
-========================================== */
+========================================== 
 
 .strength{
     width:100%;
@@ -525,6 +529,7 @@ footer p{
     margin-bottom:20px;
     font-size:13px;
 }
+*/
 
 /* ==========================================
    INPUT EFFECT
