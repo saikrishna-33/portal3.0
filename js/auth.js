@@ -177,9 +177,7 @@ if (signupForm) {
 
         }
 
-        alert(
-            "Account created successfully!\n\nPlease verify your email before logging in."
-        );
+        alert("Registration successful. Please check your inbox to verify your email.");
 
         window.location.href = "login.html";
 
@@ -194,17 +192,21 @@ if (signupForm) {
 const googleButtons = document.querySelectorAll(".google-btn");
 
 googleButtons.forEach((button) => {
-
     button.addEventListener("click", async () => {
 
-        alert(
-            "Google Sign-In will be enabled after configuring it in Supabase Authentication."
-        );
+        const { error } = await supabaseClient.auth.signInWithOAuth({
+            provider: "google",
+            options: {
+                redirectTo: "http://127.0.0.1:5500/dashboard.html"
+            }
+        });
+
+        if (error) {
+            alert(error.message);
+        }
 
     });
-
 });
-
 /* ==========================================
    LOGOUT
 ========================================== */
@@ -260,23 +262,14 @@ if (passwordInput) {
 const emailInput = document.getElementById("email");
 
 if (emailInput) {
-
     emailInput.addEventListener("blur", () => {
-
         const value = emailInput.value.trim();
-
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (value && !regex.test(value)) {
-
+        if (value !== "" && !regex.test(value)) {
             alert("Please enter a valid email address.");
-
-            emailInput.focus();
-
         }
-
     });
-
 }
 
 /* ==========================================
