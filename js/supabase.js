@@ -8,8 +8,7 @@
 
 const SUPABASE_URL = "https://ybzmspumaybllrzrxnkk.supabase.co"; // TODO: set this
 
-const SUPABASE_ANON_KEY =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inliem1zcHVtYXlibGxyenJ4bmtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwNDc2MzcsImV4cCI6MjA5OTYyMzYzN30.yc1dwmBf7pRyljBIbQYE8aQa9yAAMqQcXSsT4U0WITo"; // TODO: set this
+const SUPABASE_ANON_KEY ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inliem1zcHVtYXlibGxyenJ4bmtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwNDc2MzcsImV4cCI6MjA5OTYyMzYzN30.yc1dwmBf7pRyljBIbQYE8aQa9yAAMqQcXSsT4U0WITo"; // TODO: set this
 
 /* ==========================================
    CREATE CLIENT
@@ -18,10 +17,12 @@ const SUPABASE_ANON_KEY =
 // Supabase library is loaded from the CDN
 // included in your HTML pages.
 
-const supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
+
+window.supabaseClient = supabaseClient;
 
 /* ==========================================
    AUTH HELPERS
@@ -32,16 +33,15 @@ const supabase = window.supabase.createClient(
  */
 async function getCurrentUser() {
 
-    const { data, error } = await supabase.auth.getUser();
+    const { data, error } = await supabaseClient.auth.getUser();
 
     if (error) {
         console.error(error.message);
         return null;
     }
 
-    return data.user;
+    return data?.user || null;
 }
-
 /**
  * Returns true if the user is logged in.
  */
@@ -57,7 +57,7 @@ async function isLoggedIn() {
  */
 async function logout() {
 
-    const { error } = await supabase.auth.signOut();
+    const { error } = await supabaseClient.auth.signOut();
 
     if (error) {
 
@@ -79,7 +79,7 @@ async function logout() {
  */
 async function getQuotes() {
 
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
 
         .from("quotes")
 
@@ -104,7 +104,7 @@ async function getQuotes() {
  */
 async function getQuote(id) {
 
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
 
         .from("quotes")
 
@@ -132,7 +132,7 @@ async function getQuote(id) {
  */
 async function addQuote(content) {
 
-    const { error } = await supabase
+    const { error } = await supabaseClient
 
         .from("quotes")
 
@@ -176,7 +176,7 @@ async function reactToQuote(quoteId, reaction) {
 
     }
 
-    const { error } = await supabase
+    const { error } = await supabaseClient
 
         .from("quote_reactions")
 
@@ -207,7 +207,7 @@ async function reactToQuote(quoteId, reaction) {
  */
 async function getLikes(quoteId) {
 
-    const { count } = await supabase
+    const { count } = await supabaseClient
 
         .from("quote_reactions")
 
@@ -232,7 +232,7 @@ async function getLikes(quoteId) {
  */
 async function getDislikes(quoteId) {
 
-    const { count } = await supabase
+    const { count } = await supabaseClient
 
         .from("quote_reactions")
 
@@ -261,7 +261,7 @@ async function getMyReaction(quoteId) {
 
     if (!user) return null;
 
-    const { data } = await supabase
+    const { data } = await supabaseClient
 
         .from("quote_reactions")
 
@@ -286,7 +286,7 @@ async function getMyReaction(quoteId) {
  */
 function subscribeToReactions(callback) {
 
-    supabase
+    supabaseClient
 
         .channel("quote-reactions")
 
@@ -316,7 +316,7 @@ function subscribeToReactions(callback) {
    SESSION WATCHER
 ========================================== */
 
-supabase.auth.onAuthStateChange((event) => {
+supabaseClient.auth.onAuthStateChange((event) => {
 
     console.log("Auth Event:", event);
 
@@ -326,7 +326,7 @@ supabase.auth.onAuthStateChange((event) => {
    GLOBAL ACCESS
 ========================================== */
 
-window.supabaseClient = supabase;
+window.supabaseClient = supabaseClient;
 
 window.getCurrentUser = getCurrentUser;
 window.isLoggedIn = isLoggedIn;
